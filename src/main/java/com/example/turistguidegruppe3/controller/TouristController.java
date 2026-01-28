@@ -48,18 +48,51 @@ public class TouristController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<TouristAttraction> addMessage(@RequestBody TouristAttraction touristAttraction) {
-        if ()
+    public ResponseEntity<TouristAttraction> addTouristAttraction(@RequestBody TouristAttraction touristAttraction) {
+        if (touristAttraction != null) {
+            service.getTouristAttractions().add(touristAttraction);
+            return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-    //TODO: post /attractions/add
-
 
 
     //TODO: post /atractions/update
 
+    @PostMapping("/update")
+    public ResponseEntity<TouristAttraction> updateTouristAttraction(@RequestBody TouristAttraction touristAttraction) {
+
+        for (int i = 0; i < service.getTouristAttractions().size(); i++) {
+            TouristAttraction ta = service.getTouristAttractions().get(i);
+
+            if (touristAttraction.getName().equalsIgnoreCase(ta.getName())) {
+                service.getTouristAttractions().set(i, touristAttraction);
+                return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
 
-    //TODO: post /attractions/delete/{name}
+    @PostMapping("/seeAll")
+    public ResponseEntity<ArrayList<TouristAttraction>> seeAllTest() {
+        return new  ResponseEntity<>(service.getTouristAttractions(), HttpStatus.ACCEPTED);
+    }
+
+
+    @PostMapping("/delete/{name}")
+    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name) {
+
+        TouristAttraction t = service.findTouristAttractionByName(name);
+
+        if (t != null) {
+            service.getTouristAttractions().remove(t);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 

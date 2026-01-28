@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class TouristService {
     private final TouristRepository repository;
 
-
     public TouristService(TouristRepository repository) {
         this.repository = repository;
     }
@@ -22,6 +21,5 @@ public class TouristService {
     public  TouristAttraction findTouristAttractionByName(String input) {
         return repository.findTouristAttractionByName(input);
     }
-
 
 }
