@@ -23,7 +23,6 @@ public class TouristRepository {
         TouristAttraction t5 = new TouristAttraction("Nationalmuseet", "Danmarks største kulturhistoriske museum med udstillinger fra hele verden.");
         TouristAttraction t6 = new TouristAttraction("Christiania","Unikt fristadssamfund kendt for alternativ livsstil, kunst og kultur.");
 
-
         touristAttractions.add(t1);
         touristAttractions.add(t2);
         touristAttractions.add(t3);
@@ -38,15 +37,13 @@ public class TouristRepository {
         return touristAttractions;
     }
 
-
     public void addTouristAttraction(TouristAttraction touristAttraction) {
         touristAttractions.add(touristAttraction);
     }
 
     public TouristAttraction findTouristAttractionByName(String nameToFind) {
-
         for (TouristAttraction t : touristAttractions) {
-            if (t.getName() == nameToFind) {
+            if (nameToFind.equalsIgnoreCase(t.getName())) {
                 return t;
             }
         }
