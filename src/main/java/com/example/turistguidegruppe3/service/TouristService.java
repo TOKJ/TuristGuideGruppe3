@@ -19,5 +19,9 @@ public class TouristService {
         return repository.getTouristAttractions();
     }
 
+    public  TouristAttraction findTouristAttractionByName(String input) {
+        return repository.findTouristAttractionByName(input);
+    }
+
 
 }
