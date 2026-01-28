@@ -33,4 +33,20 @@ public class TouristController {
         return new ResponseEntity<>(touristAttractions, HttpStatus.OK);
     }
 
+    //TODO: get /attractions/{name}
+
+
+
+    //TODO: post /attractions/add
+
+
+
+    //TODO: post /atractions/update
+
+
+
+    //TODO: post /attractions/delete/{name}
+
+
+
 }
