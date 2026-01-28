@@ -41,7 +41,7 @@ public class TouristController {
 
     @GetMapping("{name}")
     public ResponseEntity<TouristAttraction> getTouristAttractionByName(@PathVariable String name) {
-        TouristAttraction t = service.getTouristAttractionByName(name);
+        TouristAttraction t = service.findTouristAttractionByName(name);
 
         if (t != null) {
             return new ResponseEntity<>(t, HttpStatus.OK);
