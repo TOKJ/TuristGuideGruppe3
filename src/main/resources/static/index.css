@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Font import for title */
+/* Google font for title */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 /* General page */
@@ -15,6 +15,10 @@ body {
     color: #333;
     line-height: 1.6;
 }
+
+
+
+
 
 /* Header */
 header {
@@ -33,16 +37,20 @@ header p {
     margin-top: 5px;
 }
 
-/* Navigation container */
-nav {
+/* HEADER BUTTON ROW */
+header nav,
+header > div {
+    display: inline-block;
     margin-top: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    position: relative;
 }
 
-/* Menu button */
+/* Navigation container */
+nav {
+    position: relative;
+    margin-right: 15px;
+}
+
+/* Dropdown button */
 .menu-button {
     background-color: white;
     color: #1e88e5;
@@ -51,16 +59,6 @@ nav {
     cursor: pointer;
     font-weight: bold;
     user-select: none;
-}
-
-/* "View all" button */
-nav a[href*="/attractions"] {
-    background-color: white;
-    color: #1e88e5;
-    padding: 10px 16px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
 }
 
 /* Dropdown menu */
@@ -79,13 +77,11 @@ nav ul {
     z-index: 1000;
 }
 
-/* Show dropdown only when hovering menu button */
+/* Show dropdown */
 .menu-button:hover + ul,
 nav ul:hover {
     display: block;
 }
-
-
 
 /* Dropdown items */
 nav li {
@@ -99,6 +95,20 @@ nav ul a {
 
 nav ul a:hover {
     text-decoration: underline;
+}
+
+/* "Vis alle" button */
+header > div a {
+    background-color: white;
+    color: #1e88e5;
+    padding: 10px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header > div a:hover {
+    background-color: #e3f2fd;
 }
 
 /* Main content */
@@ -121,6 +131,41 @@ main img {
     object-fit: cover;
     border-radius: 6px;
     margin: 20px 0;
+}
+
+/* Default text  */
+main p,
+main li,
+main a {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+/* Section titles like "Links:" */
+.section-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Link list */
+main ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+main ul li {
+    margin: 6px 0;
+}
+
+main ul a {
+    color: #1e88e5;
+    text-decoration: none;
+}
+
+main ul a:hover {
+    text-decoration: underline;
 }
 
 /* Footer */
