@@ -1,7 +1,10 @@
 package com.example.turistguidegruppe3.repository;
 
 import com.example.turistguidegruppe3.model.TouristAttraction;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 
@@ -49,6 +52,24 @@ public class TouristRepository {
         }
         return null;
     }
+
+
+
+    //Vi bruger standard for-loop da vi bruger "ArrayList.set()" method til at "sette" et nyt object på et
+    // eksisterende object.
+    public TouristAttraction helperForUpdate(TouristAttraction touristAttraction) {
+
+        for (int i = 0; i < getTouristAttractions().size(); i++) {
+            TouristAttraction ta = getTouristAttractions().get(i);
+
+            if (touristAttraction.getName().equalsIgnoreCase(ta.getName())) {
+                getTouristAttractions().set(i, touristAttraction);
+                return touristAttraction;
+            }
+        }
+        return null;
+    }
+
 
 
 }

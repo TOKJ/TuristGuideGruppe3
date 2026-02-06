@@ -22,4 +22,8 @@ public class TouristService {
         return repository.findTouristAttractionByName(input);
     }
 
+    public TouristAttraction helperForUpdate(TouristAttraction touristAttraction) {
+        return repository.helperForUpdate(touristAttraction);
+    }
+
 }

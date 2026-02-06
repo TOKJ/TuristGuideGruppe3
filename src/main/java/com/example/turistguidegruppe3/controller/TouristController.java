@@ -58,18 +58,12 @@ public class TouristController {
     }
 
 
-    //TODO: post /atractions/update
 
     @PostMapping("/update")
     public ResponseEntity<TouristAttraction> updateTouristAttraction(@RequestBody TouristAttraction touristAttraction) {
 
-        for (int i = 0; i < service.getTouristAttractions().size(); i++) {
-            TouristAttraction ta = service.getTouristAttractions().get(i);
-
-            if (touristAttraction.getName().equalsIgnoreCase(ta.getName())) {
-                service.getTouristAttractions().set(i, touristAttraction);
+        if (service.helperForUpdate(touristAttraction) != null) {
                 return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
-            }
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
