@@ -18,6 +18,8 @@ public class TouristController {
     Receives service in constructor, that is used for getters that gives the list needed.
      */
 
+    //Test af Quodana
+
     public TouristController(TouristService service) {
         this.service = service;
     }
